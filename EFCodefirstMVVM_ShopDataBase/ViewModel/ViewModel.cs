@@ -190,7 +190,6 @@ namespace EFCodefirstMVVM_ShopDataBase
         }
         //ДЗ.Реализуйте кнопку «Купить».
         //При нажатии на кнопку, выделенный товар должен добавляться во второй listbox
-        //////////////////////////////////////////////////////////////////////////////////////////////////////      
         public ICommand BuyProduct
         {
             get
@@ -201,20 +200,16 @@ namespace EFCodefirstMVVM_ShopDataBase
                   if (selectedItem != null)
                   {
                       clientProducts.Add(selectedItem);
-                      List<Product> clone = new List<Product>(clientProducts.Count);
-                      clientProducts.ForEach((index) => { clone.Add(index); });
-                      ClientProducts = clone;
+                      List<Product> listClone = new List<Product>();
+                      //clientProducts.ForEach(product => { listClone.Add(product); }); - способ с использованием лямбды
+                      foreach (var product in clientProducts) // - простой способ
+                          listClone.Add(product);
+                      ClientProducts = listClone;
                   }
               }
               );
             }
         }
-
-        public void NewMethod()
-        {
-            ClientProducts = new List<Product>();
-        }
-
         public List<Product> ClientProducts
         {
             get { return clientProducts; }
