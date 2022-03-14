@@ -104,12 +104,15 @@ namespace EFCodefirstMVVM_ShopDataBase
                 return new ButtonsCommand(
               () =>
               {
-                  if (selectedItem != null)
+                  updatePosition = new UpdatePosition();
+                  updatePosition.ShowDialog();
+                  RefreshData();
+                  /*if (selectedItem != null)
                   {
                       updatePosition = new UpdatePosition();
                       updatePosition.ShowDialog();
                       RefreshData();
-                  }
+                  }*/
                   //ShopContext shopContext = new ShopContext();
                   //shopContext.Products.Add(new Product() 
                   //{ Name = "Свекла", Price = 50, Category = "Овощь" });
@@ -185,6 +188,41 @@ namespace EFCodefirstMVVM_ShopDataBase
                 PropertyChanging("Products");
             }
         }
+        //ДЗ.Реализуйте кнопку «Купить».
+        //При нажатии на кнопку, выделенный товар должен добавляться во второй listbox
+        //////////////////////////////////////////////////////////////////////////////////////////////////////      
+        public ICommand BuyProduct
+        {
+            get
+            {
+                return new ButtonsCommand(
+              () =>
+              {
+                  if (selectedItem != null)
+                  {
+                      clientProducts.Add(selectedItem);
+                      List<Product> clone = new List<Product>(clientProducts.Count);
+                      clientProducts.ForEach((index) => { clone.Add(index); });
+                      ClientProducts = clone;
+                  }
+              }
+              );
+            }
+        }
 
+        public void NewMethod()
+        {
+            ClientProducts = new List<Product>();
+        }
+
+        public List<Product> ClientProducts
+        {
+            get { return clientProducts; }
+            set
+            {
+                clientProducts = value;
+                PropertyChanging("ClientProducts");
+            }
+        }
     }
 }
