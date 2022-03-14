@@ -53,7 +53,6 @@
 
         <DataGrid ItemsSource="{Binding Products,UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1" >
         </DataGrid>
-        <Button Command="{Binding BuyProduct, UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" >Купить</Button>
         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
             <Button Width="100" >Отменить</Button>
             <Button Width="110" >Чек</Button>
