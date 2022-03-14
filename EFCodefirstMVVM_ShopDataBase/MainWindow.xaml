@@ -56,8 +56,8 @@
 
         </DataGrid>-->
         <!--Корзина в которой хранятся купленные продукты-->
-        <ListBox ItemsSource="{Binding ClientProducts, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1"></ListBox>
-        <!--<ListBox ItemsSource="{Binding ClientProducts, UpdateSourceTrigger=PropertyChanged}" ItemTemplate="{StaticResource ProductInfoTemplate}" Grid.Row="1" Grid.Column="1"></ListBox>
+        <!--<ListBox ItemsSource="{Binding ClientProducts, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1"></ListBox>
+        <ListBox ItemsSource="{Binding ClientProducts, UpdateSourceTrigger=PropertyChanged}" ItemTemplate="{StaticResource ProductInfoTemplate}" Grid.Row="1" Grid.Column="1"></ListBox>
         Кнопка купить. Перемещает продукт из левой колонки в корзину-->
         <Button Command="{Binding BuyProduct, UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" >Купить</Button>
         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
