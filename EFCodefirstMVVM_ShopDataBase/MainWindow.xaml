@@ -10,7 +10,7 @@
         <local:ViewModel></local:ViewModel>
     </Window.DataContext>
     <Window.Resources>
-        <DataTemplate x:Key="ProductInfoTemplate">
+        <DataTemplate x:Key="ListBoxTemplate">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="7*"></ColumnDefinition>
@@ -48,11 +48,11 @@
 
         <ListBox SelectedItem="{Binding SelectedItem, 
             UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Products
-            , UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" ItemTemplate="{StaticResource ProductInfoTemplate}">
+            , UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" ItemTemplate="{StaticResource ListBoxTemplate}">
         </ListBox>
         <!--<DataGrid ItemsSource="{Binding Products,UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1" >
         </DataGrid>-->
-        <ListBox ItemsSource="{Binding ClientProducts, UpdateSourceTrigger=PropertyChanged}" ItemTemplate="{StaticResource ProductInfoTemplate}" Grid.Row="1" Grid.Column="1"></ListBox>
+        <ListBox ItemsSource="{Binding ClientProducts, UpdateSourceTrigger=PropertyChanged}" ItemTemplate="{StaticResource ListBoxTemplate}" Grid.Row="1" Grid.Column="1"></ListBox>
         <Button Command="{Binding BuyProduct, UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" >Купить</Button>
         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
             <Button Width="100" >Отменить</Button>
