@@ -9,6 +9,24 @@
     <Window.DataContext>
         <local:ViewModel></local:ViewModel>
     </Window.DataContext>
+    <Window.Resources>
+        <DataTemplate x:Key="ProductInfoTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="7*"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="{Binding Path=Name, 
+                            UpdateSourceTrigger=PropertyChanged}" FontSize="16"></Label>
+
+                <Label Grid.Column="1" 
+                               Content="{Binding Path=Price, UpdateSourceTrigger=PropertyChanged}"></Label>
+                <Label Grid.Column="2">рублей</Label>
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>        
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -30,35 +48,11 @@
 
         <ListBox SelectedItem="{Binding SelectedItem, 
             UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Products
-            , UpdateSourceTrigger=PropertyChanged}" Grid.Row="1">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="7*"></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-
-                        <Label Content="{Binding Path=Name, 
-                            UpdateSourceTrigger=PropertyChanged}" FontSize="16"></Label>
-
-                        <Label Grid.Column="1" 
-                               Content="{Binding Path=Price, UpdateSourceTrigger=PropertyChanged}"></Label>
-                        <Label Grid.Column="2">рублей</Label>
-                    </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
+            , UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" ItemTemplate="{StaticResource ProductInfoTemplate}">
         </ListBox>
-
         <!--<DataGrid ItemsSource="{Binding Products,UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1" >
-
-
         </DataGrid>-->
-        <!--Корзина в которой хранятся купленные продукты-->
-        <!--<ListBox ItemsSource="{Binding ClientProducts, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1"></ListBox>
         <ListBox ItemsSource="{Binding ClientProducts, UpdateSourceTrigger=PropertyChanged}" ItemTemplate="{StaticResource ProductInfoTemplate}" Grid.Row="1" Grid.Column="1"></ListBox>
-        Кнопка купить. Перемещает продукт из левой колонки в корзину-->
         <Button Command="{Binding BuyProduct, UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" >Купить</Button>
         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
             <Button Width="100" >Отменить</Button>

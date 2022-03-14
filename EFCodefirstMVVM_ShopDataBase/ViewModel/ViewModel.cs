@@ -191,7 +191,7 @@ namespace EFCodefirstMVVM_ShopDataBase
         //ДЗ.Реализуйте кнопку «Купить».
         //При нажатии на кнопку, выделенный товар должен добавляться во второй listbox
         //////////////////////////////////////////////////////////////////////////////////////////////////////      
-        /*public ICommand BuyProduct
+        public ICommand BuyProduct
         {
             get
             {
@@ -213,7 +213,7 @@ namespace EFCodefirstMVVM_ShopDataBase
         public void NewMethod()
         {
             ClientProducts = new List<Product>();
-        }*/
+        }
 
         public List<Product> ClientProducts
         {
